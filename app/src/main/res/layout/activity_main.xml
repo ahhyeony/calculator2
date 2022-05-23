@@ -8,8 +8,8 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/edit1"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:orientation="horizontal"
@@ -225,7 +225,6 @@
             android:layout_height="70dp"
             android:background="@drawable/round"
             android:layout_marginLeft="42dp"
-            android:marginBottom-="100dp"
             android:text="0"
             android:backgroundTint="#C4C4C4"
             android:textSize="20sp" />
@@ -236,7 +235,6 @@
             android:layout_height="70dp"
             android:background="@drawable/round"
             android:layout_marginLeft="15dp"
-            android:marginBottom-="100dp"
             android:text="."
             android:backgroundTint="#C4C4C4"
             android:textSize="20sp" />
@@ -247,7 +245,6 @@
             android:layout_height="75dp"
             android:background="@drawable/round"
             android:layout_marginLeft="13dp"
-            android:marginBottom-="100dp"
             android:text="="
             android:backgroundTint="#F8EA75"
             android:textSize="20sp" />
