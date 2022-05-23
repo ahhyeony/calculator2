@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button15, button16, button17, button18, button19, button20, button21, button22, button23;
 
     private EditText edit;
-    private int a;
+    private float a;
     private int where=0;
 
     @Override
@@ -96,20 +97,21 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(v==button10) {
                     if (where == 1) {
-                        a = a + Integer.valueOf(edit.getText().toString().trim());
-                        edit.setText(Integer.toString(a));
+                        a = a + Float.valueOf(edit.getText().toString().trim());
+                        edit.setText(Float.toString(a));
                     }
                     else if(where==2){
-                        a = a * Integer.valueOf(edit.getText().toString().trim());
-                        edit.setText(Integer.toString(a));
+                        Log.v("test", Float.toString(a));
+                        a = a * Float.valueOf(edit.getText().toString().trim());
+                        edit.setText(Float.toString(a));
                     }
                     else if(where==3){
-                        a = a / Integer.valueOf(edit.getText().toString().trim());
-                        edit.setText(Integer.toString(a));
+                        a = a / Float.valueOf(edit.getText().toString().trim());
+                        edit.setText(Float.toString(a));
                     }
                     else if(where==4){
-                        a = a - Integer.valueOf(edit.getText().toString().trim());
-                        edit.setText(Integer.toString(a));
+                        a = a - Float.valueOf(edit.getText().toString().trim());
+                        edit.setText(Float.toString(a));
                     }
                 }
                 else if(v==button15){
@@ -146,70 +148,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-//        TextView txtExpression;
-//        private TextView txtResult;
-//        private List<Integer> checkList; // -1: 이콜, 0: 연산자, 1: 숫자, 2: . / 예외 발생을 막는 리스트
-//        private Stack<String> operatorStack; // 연산자를 위한 스택
-//        private List<String> infixList; // 중위 표기
-//        private List<String> postfixList; // 후위 표기
-//
-//    init();
-//
-//    void init() {
-//        txtExpression = findViewById(R.id.textView);
-//        txtResult = findViewById(R.id.textView);
-//        checkList = new ArrayList<>();
-//        operatorStack = new Stack<>();
-//        infixList = new ArrayList<>();
-//        postfixList = new ArrayList<>();
-//
-//        ActionBar actionBar = getSupportActionBar();
-//        assert actionBar != null;
-//        actionBar.hide();
-//
-//        // 필드 초기화
-//        txtExpression = findViewById(R.id.textView);
-//        txtResult = findViewById(R.id.textView);
-//        checkList = new ArrayList<>();
-//        operatorStack = new Stack<>();
-//        infixList = new ArrayList<>();
-//        postfixList = new ArrayList<>();
-//
-//        actionBar = getSupportActionBar()
-//        assert actionBar != null;
-//        actionBar.hide();
-//    }
-//
-//        // 연산자 가중치 (우선순위 *,/,%,+,-)
-//        int getWeight(String operator) {
-//            int weight = 0;
-//            switch (operator) {
-//                case "X": case "/": weight = 5; break;
-//                case "%": weight = 3; break;
-//                case "+": case "-": weight = 1; break;
-//            }
-//            return weight;
-//        }
-//
-//        // 전위 -> 후위
-//        void infixToPostfix() {
-//            for (String item : infixList) {
-//                // 피연산자
-//                if (isNumber(item)) postfixList.add(String.valueOf(Double.parseDouble(item)));
-//                // 연산자
-//                else {
-//                    if (operatorStack.isEmpty()) operatorStack.push(item);
-//                    else {
-//                        if (getWeight(operatorStack.peek()) >= getWeight(item)) postfixList.add(operatorStack.pop());
-//                        operatorStack.push(item);
-//                    }
-//                }
-//            } while (!operatorStack.isEmpty()) postfixList.add(operatorStack.pop());
-//        }
